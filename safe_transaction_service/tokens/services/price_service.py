@@ -266,6 +266,12 @@ class PriceService:
             return self.get_algorand_usd_price()
         elif self.ethereum_network == EthereumNetwork.TT:
             return self.get_tt_usd_price()
+        elif self.ethereum_network in (
+            EthereumNetwork.CELO,
+            EthereumNetwork.CELO_ALFAJORES,
+            EthereumNetwork.CELO_BAKLAVA,
+        ):
+            return self.kucoin_client.get_celo_usd_price()
         else:
             try:
                 return self.kraken_client.get_eth_usd_price()
