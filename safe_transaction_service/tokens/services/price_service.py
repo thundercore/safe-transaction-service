@@ -264,7 +264,10 @@ class PriceService:
             EthereumNetwork.MILKOMEDA_A1_MAINNET,
         ):
             return self.get_algorand_usd_price()
-        elif self.ethereum_network == EthereumNetwork.TT:
+        elif self.ethereum_network in (
+            EthereumNetwork.TT,
+            EthereumNetwork.TST_TESTNET ,
+        ):
             return self.get_tt_usd_price()
         elif self.ethereum_network in (
             EthereumNetwork.CELO,
